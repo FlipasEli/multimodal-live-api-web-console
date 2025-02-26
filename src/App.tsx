@@ -21,6 +21,7 @@ import SidePanel from "./components/side-panel/SidePanel";
 import ControlTray from "./components/control-tray/ControlTray";
 import ExplainerPicker from "./components/explainer-picker/ExplainerPicker";
 import Footer from "./components/footer/Footer";
+import { SombraUI } from "./components/SombraUI";
 
 const API_KEY = process.env.REACT_APP_GEMINI_API_KEY as string;
 if (typeof API_KEY !== "string") {
@@ -37,16 +38,7 @@ function App() {
     <div className="App">
       <LiveAPIProvider url={uri} apiKey={API_KEY}>
         <div className="streaming-console">
-          <SidePanel />
-          <main>
-            <div className="main-app-area">
-              <ExplainerPicker />
-              <Footer />
-            </div>
-            <ControlTray videoRef={videoRef} supportsVideo={false}>
-              {/* put your own buttons here */}
-            </ControlTray>
-          </main>
+          <SombraUI />
         </div>
       </LiveAPIProvider>
     </div>
